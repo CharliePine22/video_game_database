@@ -6,14 +6,15 @@ const Searchbar = () => {
 
     const submitHandler = (event) => {
         event.preventDefault();
-        const nameOfGame = gameSearch.current.value
-        console.log(nameOfGame)
+        const nameOfGame = gameSearch.current.value.split(' ').join('-').toLowerCase()
+        alert(nameOfGame)
     }
 
     return <>
     <div className={styles.container}>
         <form onSubmit={submitHandler}>
-            <input type="text" ref={gameSearch} />
+            <label htmlFor='game-name'>Name of Game</label>
+            <input type="text" ref={gameSearch} id='game-name'/>
         </form>
     </div>
     </>

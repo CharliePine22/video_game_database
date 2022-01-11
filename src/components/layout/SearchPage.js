@@ -1,29 +1,23 @@
-import Typewriter from 'typewriter-effect';
 import Searchbar from '../games/Searchbar';
 import styles from './SearchPage.module.css';
+import NavigationBar from './NavigationBar';
 
 const SearchPage = () => {
   return (
     <>
-      <div className={styles.search}>
-        <h1>Search</h1>
-        <Typewriter
-          onInit={(typewriter) => {
-            typewriter
-              .typeString('Enter the name of the game you would like to add')
-              .callFunction(() => {
-                console.log('String typed out!');
-              })
-              .pauseFor(2500)
-              .deleteAll()
-              .callFunction(() => {
-                console.log('All strings were deleted');
-              })
-              .start();
-          }}
-        />
+      <NavigationBar />
+      <div className={styles.card}>
+        <div className={styles.search}>
+          <h1>Search</h1>
+          <p>Please type in the name of the game that you would like to add.</p>
+        </div>
+        <div className={styles.searchbar}>
+          <Searchbar />
+        </div>
       </div>
-      <Searchbar />
+      <div className={styles.footer}>
+        <img src="assets/arcade.jpg" />
+      </div>
     </>
   );
 };

@@ -1,9 +1,9 @@
-import SearchPage from "../../components/layout/SearchPage"
+import SearchPage from "../../src/components/layout/SearchPage"
 
 const Search = () => {
-    return (
+    return <>
         <SearchPage />
-    )
+    </>
 }
 
 export default Search;

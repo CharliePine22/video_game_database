@@ -6,7 +6,7 @@ const CarouselItems = () => {
     {/* Carousel showing top 3 favorite games OR current games being played/in backlog */}
     return <>
       <div className={styles.container}>
-      <h1>My Top Games</h1>
+      <h1>Current Games</h1>
      <Carousel className={styles.carousel}>
      <Carousel.Item>
        <img

@@ -1,0 +1,21 @@
+.container {
+    /* background-color: black; */
+    display:flex;
+    justify-content: center;
+}
+
+.container form {
+    color: red;
+    display:flex;
+    flex-direction:column;
+    text-align:center;
+}
+
+.container label {
+    font-size: 1.2rem;
+    padding-bottom: .5rem;
+}
+
+.container input {
+    width: 400px;
+}
