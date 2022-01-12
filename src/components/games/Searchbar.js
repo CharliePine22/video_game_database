@@ -1,17 +1,37 @@
-import { useRef } from 'react';
+import { useRef, useState, useContext } from 'react';
+import { useRouter } from 'next/router';
 import styles from './Searchbar.module.css';
+import contextValue from '../../contexts/ResultsContext';
 
 const Searchbar = () => {
+  // Track entry of user input
   const gameSearch = useRef();
+  // Set search results to an empty list to prevent loading errors
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
+  const ctx = useContext(contextValue);
 
   const submitHandler = (event) => {
     event.preventDefault();
-    const nameOfGame = gameSearch.current.value
-      .split(' ')
-      .join('-')
-      .toLowerCase();
-    alert(nameOfGame);
-    gameSearch.current.value = ''
+    let slug = gameSearch.current.value.split(' ').join('-').toLowerCase();
+    // Format user input to match api formatting
+    const url =`https://api.rawg.io/api/games?key=c69737aae4e04ce8ad8613ba04c2be9f&search=${slug}`
+
+    const fetchData = async () => {
+      setLoading(true)
+      // Fetch data and return a list of entries
+      const response = await fetch(url);
+      const data = await response.json();
+      setLoading(false)
+      if (!loading && data) {
+        ctx.setResultsData(data);
+      }
+    };
+    fetchData();
+    gameSearch.current.value = '';
+    router.push({
+      pathname: `/search/search-results`,
+    })
   };
 
   return (
