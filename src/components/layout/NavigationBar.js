@@ -6,11 +6,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const NavigationBar = () => {
   return (
-    <Navbar className={styles.nav} bg="dark" variant="dark" expand="lg" fixed='top'>
+    <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
       <Container>
         <Navbar.Brand className={styles['nav-brand']} href="/">
           <img
-            src='assets/Dualshock4.png'
+            src="assets/Dualshock4.png"
             width="80"
             height="30"
             className={styles['nav-logo']}
@@ -19,11 +19,17 @@ const NavigationBar = () => {
           VG Database
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/all_games">All Games</Nav.Link>
-            <Nav.Link href="/search">Add Game</Nav.Link>
+        <Navbar.Collapse className='justify-content-end' id="basic-navbar-nav">
+          <Nav>
+            <Nav.Item>
+              <Nav.Link className={styles.link} href="/">Home</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link className={styles.link} href="/all_games">All Games</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link className={styles.link} href="/search">Add Game</Nav.Link>
+            </Nav.Item>
           </Nav>
         </Navbar.Collapse>
       </Container>

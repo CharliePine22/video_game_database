@@ -2,4 +2,8 @@
     float: left !important;
     margin-left: -15px !important;
     padding-right: 20px;
-  }
+}
+
+.link {
+    margin: 8px;
+}
