@@ -9,10 +9,13 @@ const SearchResults = (props) => {
   return (
     <>
       <div className={styles['results-container']}>
+        <h1>Results for: game</h1>
         <ul>
           {results.map((game) => (
             <SearchResultsItem
               id={game.id}
+              key={game.id}
+              slug={game.slug}
               name={game.name}
               background_image={game.background_image}
               released={game.released}

@@ -1,6 +1,8 @@
-
+import GameDetails from "../../../src/components/games/GameDetails";
 const GameDetailsPage = (props) => {
-    return <h1>Test</h1>    
+    return <div>
+        <GameDetails/>
+    </div>
 }
 
 export default GameDetailsPage;

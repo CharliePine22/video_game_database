@@ -10,10 +10,10 @@ const SearchResultsPage = () => {
       return <p>Fetching games...</p>
   }
 
+
   return (
     <>
       <NavigationBar />
-      <h1>test</h1>
       <SearchResults data={data} />
     </>
   );
