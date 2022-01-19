@@ -15,8 +15,8 @@ const Searchbar = () => {
     event.preventDefault();
     let slug = gameSearch.current.value.split(' ').join('-').toLowerCase();
     // Format user input to match api formatting
-    const url =`https://api.rawg.io/api/games?key=c69737aae4e04ce8ad8613ba04c2be9f&search=${slug}`
-
+    const url =`https://api.rawg.io/api/games?key=9554d3d0cc264b718b7840ee768f104b&search=${slug}`
+    console.log(url)
     const fetchData = async () => {
       setLoading(true)
       // Fetch data and return a list of entries
@@ -25,6 +25,7 @@ const Searchbar = () => {
       setLoading(false)
       if (!loading && data) {
         ctx.setResultsData(data);
+        console.log(data)
       }
     };
     fetchData();

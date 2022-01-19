@@ -1,8 +1,9 @@
 import '../styles/globals.css'
-import { ResultsProvider } from '../src/contexts/ResultsContext'
+import { ResultsProvider } from '../src/contexts/ResultsContext';
+import NavigationBar from '../src/components/layout/NavigationBar';
 
 function MyApp({ Component, pageProps }) {
-  return <ResultsProvider><Component {...pageProps} /></ResultsProvider>
+  return <ResultsProvider><NavigationBar /><Component {...pageProps} /></ResultsProvider>
 }
 
 export default MyApp
