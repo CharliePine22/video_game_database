@@ -15,6 +15,7 @@ const GameDetails = () => {
       const response = await fetch(url);
       const data = await response.json();
       setGame(data);
+      console.log(data)
     };
     fetchGameData();
     

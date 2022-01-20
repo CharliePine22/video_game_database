@@ -7,7 +7,7 @@ import TickerBar from '../ui/TickerBar';
 import Link from 'next/link'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Home = (params) => {
+const Home = () => {
 
   return (
     <>
@@ -19,6 +19,7 @@ const Home = (params) => {
         <img
           src="assets/vg_header.jpg"
           alt="A large collection of video games"
+          className={styles['background-image']}
         />
       </div>
       <div className={styles.description}>
