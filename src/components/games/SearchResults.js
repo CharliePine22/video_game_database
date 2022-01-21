@@ -1,17 +1,16 @@
-import { useEffect } from 'react';
 import styles from './SearchResults.module.css';
 import SearchResultsItem from './SearchResultsItem';
 
 const SearchResults = (props) => {
-  const results = props.data;
-  console.log(results)
-
+  const results = props.data.results;
+  
   return (
     <>
       <div className={styles['results-container']}>
-        <h1>Results for: game</h1>
+        <h1>Results</h1>
         <ul>
           {results.map((game) => (
+            game['background_image'] != null &&
             <SearchResultsItem
               id={game.id}
               key={game.id}

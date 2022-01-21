@@ -1,5 +1,22 @@
+.back {
+    color:white;
+    margin-top: 15px;
+    font-size: 40px;
+    text-align: left;
+    width:100%;
+}
+
+.back:hover {
+    cursor: pointer;
+    font-weight: bold;
+    color:red;
+}
+
+
 .container {
     margin-top: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,27 +46,60 @@
     margin-bottom: 2rem;
 }
 
+.developers {
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+}
+
+.door-open {
+    display:none;
+}
+
+.door-closed:hover {
+    display:none;
+}
+
+.door-closed:hover + .door-open {
+    display:block;
+}
+
 .game-info-container {
+    margin-bottom: 20px;
     display:flex;
     flex-direction:column;
     align-items: center;
     font-size: .75rem;
+    color:white;
+    width: 90%;
+}
+
+.game-info-container ul {
+    padding: 0;
 }
 
 .game-info-container h2 {
-    margin: 10px 0 50px 0;
+    margin: 30px 0 50px 0;
+    color:red;
+}
+
+.game-info-container li {
+    list-style-type: none;
 }
 
 .game-info {
     display:flex;
-    width: 1000px;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+    font-size: .85rem;
 }
 
-
-.game-series li {
-    list-style-type: none;
-    text-decoration: underline;
+.headers {
+    color:red;
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
 }
 
 .image-container {
@@ -62,7 +112,7 @@
 
 .image-container img {
     height: 600px;
-    width: 35%;
+    width: 40%;
     box-shadow: 0 0 25px red;
     margin-left: 20px;
     margin-right: 20px;
@@ -71,11 +121,50 @@
 .platforms {
     display:flex;
     flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    margin: 0 10px;
+}
+
+.playtime {
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    margin: 0 10px;
+}
+
+.rating {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    margin: 0 10px;
+}
+
+.release-date {
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    margin: 0 10px;
 }
 
 .series {
     display:flex;
     flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    padding-top: 3rem;
+}
+
+.series-game {
+    color:white;
+}
+
+.series-game:hover {
+    cursor: pointer;
+    color:red;
 }
 
 .toggle {

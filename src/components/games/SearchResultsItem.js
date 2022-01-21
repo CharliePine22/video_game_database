@@ -12,7 +12,7 @@ const SearchResultsItem = (props) => {
         <div className={styles['game-info']}>
           <h1>{props.name}</h1>
           <p>Release Date: {props.released}</p>
-          <Link href={{pathname: `/search/search-results/${props.slug}`, query: {keyword: `${props.slug}` }}}>See Game Details</Link>
+          <Link href={`/game_details/${props.slug}`}>See Game Details</Link>
         </div>
       </div>
       </li>

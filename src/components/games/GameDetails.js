@@ -1,42 +1,38 @@
-import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import styles from './GameDetails.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDoorClosed } from '@fortawesome/free-solid-svg-icons';
+import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 
-const GameDetails = () => {
-  const [game, setGame] = useState('');
+const GameDetails = (props) => {
+  const game = props.game;
+  console.log(game);
   const [gameSeriesList, setGameSeriesList] = useState([]);
   const [showFullDescription, setShowFullDescription] = useState(false);
-  const router = useRouter();
-  const gameName = router.query.keyword;
-  const url = `https://api.rawg.io/api/games/${gameName}?key=9554d3d0cc264b718b7840ee768f104b`;
+  const doorOpenIcon = <FontAwesomeIcon icon={faDoorOpen} />;
+  const doorClosedIcon = <FontAwesomeIcon icon={faDoorClosed} />;
 
   useEffect(() => {
-    const fetchGameData = async () => {
-      const response = await fetch(url);
-      const data = await response.json();
-      setGame(data);
-      console.log(data)
-    };
-    fetchGameData();
-    
-  }, [gameName]);
-
-  useEffect(() => {
+    // Fetch game series list after component renders
     const fetchGameSeries = async () => {
-        const response = await fetch(
-          `https://api.rawg.io/api/games/${game.id}/game-series?key=9554d3d0cc264b718b7840ee768f104b`
-        );
-        const data = await response.json();
-        setGameSeriesList(data.results);
-      };
-      fetchGameSeries();
-  }, [game.id])
+      const response = await fetch(
+        `https://api.rawg.io/api/games/${game.id}/game-series?key=9554d3d0cc264b718b7840ee768f104b`
+      );
+      const data = await response.json();
+      setGameSeriesList(data.results);
+    };
+    fetchGameSeries();
+  }, [game.id]);
 
   const toggleFullDescription = () => {
+    // Set toggle description to true/false depending on the current bool value
     setShowFullDescription(!showFullDescription);
   };
 
   const shortenDescription = (game) => {
+    // Function to shorten game description
+    // Works with toggleFullDescription function to display full description if user wants
     const cleanGame = game.description.replace(/<[^>]*>?/gm, '');
     const cleanedGame = cleanGame.replace(/&#39;/g, "'").trim();
 
@@ -47,20 +43,36 @@ const GameDetails = () => {
     }
   };
 
-  if (
-    !game ||
-    game.slug == undefined ||
-    !gameSeriesList ||
-    gameSeriesList.length == 0
-  ) {
+  const addGameHandler = () => {
+    const fetchApi = async () => {
+      const response = await fetch('/api/add-game', {
+        method: 'POST',
+        body: JSON.stringify(game),
+        headers: { 'Content-Type': 'application/json' },
+      });
+      const data = await response.json();
+      console.log(data);
+    };
+    fetchApi();
+  };
+
+  // Show load screen until everything renders
+  if (!gameSeriesList || gameSeriesList.length == 0) {
     return <h1>Fetching game details</h1>;
   }
 
   return (
     <div className={styles.container}>
+      {/* Return user to search results page icon */}
+      <div className={styles.back}>
+        <span className={styles['door-closed']}>{doorClosedIcon}</span>
+        <span className={styles['door-open']}>{doorOpenIcon}</span>
+      </div>
       <h1>{game.name}</h1>
+      {/* Image container */}
       <div className={styles['image-container']}>
         <img src={game.background_image} />
+        {/* Description container */}
         <div className={styles.description}>
           <h3>About</h3>
           <p>{shortenDescription(game)}</p>
@@ -71,25 +83,77 @@ const GameDetails = () => {
           </button>
         </div>
       </div>
+      {/* Container holding all game info */}
       <div className={styles['game-info-container']}>
         <h2>Game Info</h2>
+        {/* Game information start */}
         <div className={styles['game-info']}>
-          <div className={styles.platforms}>
-            <h3>Platforms</h3>
+          {/* Game rating container */}
+          <div className={styles.rating}>
+            <h3 className={styles.headers}>Metacritic Rating</h3>
+            <p>{game.metacritic}</p>
+          </div>
+          {/* Game release date container */}
+          <div className={styles['release-date']}>
+            <h3 className={styles.headers}>Release Date</h3>
+            <p>{game.released}</p>
+          </div>
+          {/* Game playtime container */}
+          <div className={styles.playtime}>
+            <h3 className={styles.headers}>Avg Playtime</h3>
+            <p>{game.playtime}</p>
+          </div>
+          {/* Game developers container */}
+          <div className={styles.developers}>
+            <h3 className={styles.headers}>Developers</h3>
             <ul>
-              {game.platforms.map((p) => (
-                <li>{p.platform.name}</li>
+              {game.developers.length != 0
+                ? game.developers.map((game, index, arr) => (
+                    <li>
+                      {game.name} {index != arr.length - 1 ? '| ' : ''}
+                    </li>
+                  ))
+                : game.publishers.map((game, index, arr) => (
+                    <li>
+                      {game.name} {index != arr.length - 1 ? '| ' : ''}
+                    </li>
+                  ))}
+
+              {/* // {game.publishers.length != 0 &&
+              //   game.publishers.map((game, index, arr) => (
+              //     <li>
+              //       {game.name} {index != arr.length - 1 ? '| ' : ''}
+              //     </li>
+              //   ))} */}
+            </ul>
+          </div>
+          {/* Game platforms container */}
+          <div className={styles.platforms}>
+            <h3 className={styles.headers}>Platforms</h3>
+            <ul>
+              {game.platforms.map((p, index, arr) => (
+                <span>
+                  {p.platform.name} {index != arr.length - 1 ? '| ' : ''}
+                </span>
               ))}
             </ul>
           </div>
-          <div className={styles.series}>
-          <h3>Series Collection</h3>
+        </div>
+        {/* Other games in series container */}
+        <div className={styles.series}>
+          <h3 className={styles.headers}>Series Collection</h3>
           <ul className={styles['game-series']}>
             {gameSeriesList &&
-              gameSeriesList.map((game) => <li>{game.name}</li>)}
+              gameSeriesList.map((game) => (
+                <Link href={`/game_details/${game.slug}`}>
+                  <a className={styles['series-game']}>
+                    {game.name} <br />
+                  </a>
+                </Link>
+              ))}
           </ul>
-          </div>
         </div>
+        <button onClick={addGameHandler}>ADD GAME</button>
       </div>
     </div>
   );

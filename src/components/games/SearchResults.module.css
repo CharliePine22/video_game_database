@@ -1,4 +1,9 @@
 .results-container {
     background-color:black;
     color:red;
+    margin-top: 100px;
+}
+
+.results-container h1 {
+    margin-bottom: 25px;
 }

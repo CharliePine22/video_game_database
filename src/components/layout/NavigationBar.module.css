@@ -2,6 +2,7 @@
     float: left !important;
     margin-left: -15px !important;
     padding-right: 20px;
+    background-color: transparent;
 }
 
 .link {

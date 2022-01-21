@@ -10,8 +10,8 @@ const NavigationBar = () => {
       <Container>
         <Navbar.Brand className={styles['nav-brand']} href="/">
           <img
-            src="assets/Dualshock4.png"
-            width="80"
+            src="assets/consoles.png"
+            width="150"
             height="30"
             className={styles['nav-logo']}
             alt=""
