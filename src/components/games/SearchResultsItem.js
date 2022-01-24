@@ -10,7 +10,7 @@ const SearchResultsItem = (props) => {
           <img src={props.background_image} />
         </div>
         <div className={styles['game-info']}>
-          <h1>{props.name}</h1>
+          <h2>{props.name}</h2>
           <p>Release Date: {props.released}</p>
           <Link href={`/game_details/${props.slug}`}>See Game Details</Link>
         </div>

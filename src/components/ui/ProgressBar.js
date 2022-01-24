@@ -23,13 +23,13 @@ const ProgressBar = () => {
     textAlign: 'right',
   };
 
-  return (
+  return <>
     <div className={styles.container}>
       <div style={fillerStyles}>
         <span className={styles.label}>{`${progress}%`}</span>
       </div>
     </div>
-  );
+    </>
 };
 
 export default ProgressBar;

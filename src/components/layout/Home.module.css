@@ -32,22 +32,19 @@
     font-size:1rem;
 }
 
-.description button {
+.description a {
     background-color:black;
     border:1px solid red;
     border-radius: 5px;
     margin-top: 35px;
     padding: 1rem;
-}
-
-.description button:hover {
-    background-color: red;
-    border: 1px solid white;
-}
-
-.description a {
     color: white;
     text-decoration:none;
+}
+
+.description a:hover {
+    background-color: red;
+    border: 1px solid white;
 }
 
 

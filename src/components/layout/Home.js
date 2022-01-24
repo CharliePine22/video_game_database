@@ -40,7 +40,7 @@ const Home = () => {
               .start();
           }}
         />
-        <button><Link href='/search'>Add New Game</Link></button>
+        <Link className={styles.button} href='/search'>Add New Game</Link>
       </div>
       <div className={styles.games}>
         <CarouselItems />

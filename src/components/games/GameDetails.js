@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import styles from './GameDetails.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDoorClosed } from '@fortawesome/free-solid-svg-icons';
 import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
+import ProgressBar from '../ui/ProgressBar';
 
 const GameDetails = (props) => {
   const game = props.game;
-  console.log(game);
+  const router = useRouter();
   const [gameSeriesList, setGameSeriesList] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [showFullDescription, setShowFullDescription] = useState(false);
   const doorOpenIcon = <FontAwesomeIcon icon={faDoorOpen} />;
   const doorClosedIcon = <FontAwesomeIcon icon={faDoorClosed} />;
@@ -44,16 +47,25 @@ const GameDetails = (props) => {
   };
 
   const addGameHandler = () => {
+    // Add game details to MongoDB
     const fetchApi = async () => {
-      const response = await fetch('/api/add-game', {
-        method: 'POST',
-        body: JSON.stringify(game),
-        headers: { 'Content-Type': 'application/json' },
-      });
-      const data = await response.json();
-      console.log(data);
+      try {
+        const response = await fetch('/api/add-game', {
+          method: 'POST',
+          body: JSON.stringify(game),
+          headers: { 'Content-Type': 'application/json' },
+        });
+        if(!response.ok) {
+          throw new Error(response.statusText)
+        }
+        const data = await response.json();
+        console.log(data)
+      } catch (e) {
+        console.log(e);
+      } 
     };
-    fetchApi();
+    // fetchApi();
+    setLoading(true);
   };
 
   // Show load screen until everything renders
@@ -61,10 +73,17 @@ const GameDetails = (props) => {
     return <h1>Fetching game details</h1>;
   }
 
+  if(loading) {
+    return <>
+    <h1>Loading...</h1>
+    <ProgressBar />
+    </>
+  }
+
   return (
     <div className={styles.container}>
       {/* Return user to search results page icon */}
-      <div className={styles.back}>
+      <div onClick={() => router.back()} className={styles.back}>
         <span className={styles['door-closed']}>{doorClosedIcon}</span>
         <span className={styles['door-open']}>{doorOpenIcon}</span>
       </div>
@@ -91,7 +110,9 @@ const GameDetails = (props) => {
           {/* Game rating container */}
           <div className={styles.rating}>
             <h3 className={styles.headers}>Metacritic Rating</h3>
-            <p>{game.metacritic}</p>
+            <p>
+              {game.metacritic != null ? game.metacritic : 'No rating details'}
+            </p>
           </div>
           {/* Game release date container */}
           <div className={styles['release-date']}>
@@ -107,6 +128,7 @@ const GameDetails = (props) => {
           <div className={styles.developers}>
             <h3 className={styles.headers}>Developers</h3>
             <ul>
+              {/* If the developers list is empty, show the publishers list */}
               {game.developers.length != 0
                 ? game.developers.map((game, index, arr) => (
                     <li>
@@ -118,13 +140,6 @@ const GameDetails = (props) => {
                       {game.name} {index != arr.length - 1 ? '| ' : ''}
                     </li>
                   ))}
-
-              {/* // {game.publishers.length != 0 &&
-              //   game.publishers.map((game, index, arr) => (
-              //     <li>
-              //       {game.name} {index != arr.length - 1 ? '| ' : ''}
-              //     </li>
-              //   ))} */}
             </ul>
           </div>
           {/* Game platforms container */}
@@ -153,7 +168,14 @@ const GameDetails = (props) => {
               ))}
           </ul>
         </div>
-        <button onClick={addGameHandler}>ADD GAME</button>
+        {/* Grab user ratings and display them in a bar chart */}
+        <div className={styles['user-ratings']}>
+          <h3>User Ratings</h3>
+          <p>Plan on putting a bar chart of user ratings</p>
+        </div>
+        <button className={styles.button} onClick={addGameHandler}>
+          ADD GAME
+        </button>
       </div>
     </div>
   );

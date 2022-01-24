@@ -1,9 +1,15 @@
 .container {
+    position:absolute;
+    top:50%;
     height: 20px;
-    width: 100%;
+    width: 75%;
     background-color: #e0e0de;
-    border-radius: 50;
-    margin: 50;
+    border-radius: 50px;
+    margin: 50px;
+}
+
+.container h3 {
+    position: relative;
 }
 
 .label {
