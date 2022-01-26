@@ -1,7 +1,8 @@
 import styles from './ProgressBar.module.css';
 import { useState, useEffect } from 'react';
+import SlotsAnimation from './SlotsAnimation';
 
-const ProgressBar = () => {
+const ProgressBar = (props) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -10,6 +11,7 @@ const ProgressBar = () => {
       counter++;
       setProgress(counter);
       if (counter == 100) {
+        setTimeout(function() {props.setLoading(false)}, 3000);
         clearInterval(interval);
       }
     }, 100);
@@ -24,6 +26,7 @@ const ProgressBar = () => {
   };
 
   return <>
+      <SlotsAnimation progress={progress} />
     <div className={styles.container}>
       <div style={fillerStyles}>
         <span className={styles.label}>{`${progress}%`}</span>

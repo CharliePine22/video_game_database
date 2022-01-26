@@ -5,7 +5,7 @@ import styles from './GameDetails.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDoorClosed } from '@fortawesome/free-solid-svg-icons';
 import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
-import ProgressBar from '../ui/ProgressBar';
+import LoadingScreen from '../layout/LoadingScreen';
 
 const GameDetails = (props) => {
   const game = props.game;
@@ -55,17 +55,17 @@ const GameDetails = (props) => {
           body: JSON.stringify(game),
           headers: { 'Content-Type': 'application/json' },
         });
-        if(!response.ok) {
-          throw new Error(response.statusText)
+        if (!response.ok) {
+          throw new Error(response.statusText);
         }
         const data = await response.json();
-        console.log(data)
+        console.log(data);
       } catch (e) {
         console.log(e);
-      } 
+      }
     };
-    // fetchApi();
     setLoading(true);
+    fetchApi();
   };
 
   // Show load screen until everything renders
@@ -73,11 +73,12 @@ const GameDetails = (props) => {
     return <h1>Fetching game details</h1>;
   }
 
-  if(loading) {
-    return <>
-    <h1>Loading...</h1>
-    <ProgressBar />
-    </>
+  if (loading) {
+    return (
+      <>
+          <LoadingScreen setLoading={setLoading}/>
+      </>
+    );
   }
 
   return (

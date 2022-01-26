@@ -1,11 +1,15 @@
 import ProgressBar from '../ui/ProgressBar';
 import styles from './LoadingScreen.module.css';
 
-const LoadingScreen = () => {
-    return <div className={styles.page}>
-        <h1>Loading...</h1>
-        <ProgressBar />
+const LoadingScreen = (props) => {
+
+  return (
+    <div className={styles.page}>
+      <div className={styles['loading-container']}>
+        <ProgressBar setLoading={props.setLoading} />
+      </div>
     </div>
+  );
 };
 
 export default LoadingScreen;

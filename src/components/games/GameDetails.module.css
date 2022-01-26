@@ -134,6 +134,17 @@
     border-radius: 10px;
 }
 
+.loading {
+    display:flex;
+    color:white;
+    text-align: center;
+}
+
+.loading h1 {
+    color:red;
+    font-size:3rem;
+}
+
 .platforms {
     display:flex;
     flex-direction: column;

@@ -1,0 +1,35 @@
+.slot {
+    position: relative;
+    display: inline-block;
+    height: 100px;
+    width: 600px;
+  }
+  
+  .section {
+    position: absolute;
+    border-radius: 15px !important;
+    border: 3px solid black !important;
+    width: 600px;
+    height: 80px;
+    overflow: hidden;
+    background-color: grey;
+    border-radius: 2px;
+    border: 1px solid red;
+    color: red;
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 25px;
+    line-height: 50px;
+    cursor: default;
+    overflow-wrap: break-word;
+  }
+  
+  .container {
+    position: absolute;
+    /* Lower top by 60px to center next message */
+    top: 10px;  
+    width: 100%;
+    transition: top ease-in-out 0.5s;
+    text-align: center;
+    font-size: 1rem;
+  }
