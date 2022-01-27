@@ -3,11 +3,11 @@ import { MongoClient } from 'mongodb';
 async function handler(req, res) {
     if (req.method === 'POST') {
         const data = req.body;
-        console.log(data.id)
+        const dataId = data.id
         const client = await MongoClient.connect('mongodb+srv://cpine22:knight21@cluster0.mqwzb.mongodb.net/video_games?retryWrites=true&w=majority')
         const db = client.db()
         const videoGamesCollection = db.collection('video games');
-        const item = db.videoGamesCollection.find({"id":data.id}).count() > 0;
+        const item = db.videoGamesCollection.find({"id":dataId}).count() > 0;
         if(item) {
         console.log(item.id)
         } else {
