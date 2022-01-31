@@ -1,9 +1,11 @@
 import ProgressBar from '../ui/ProgressBar';
 import styles from './LoadingScreen.module.css';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import ResultsContext from '../../contexts/ResultsContext';
 
 const LoadingScreen = (props) => {
   const [finishedLoading, setFinishedLoading] = useState(false);
+  const ctx = useContext(ResultsContext);
 
   const displayMessage = () => {
     setFinishedLoading(true);
@@ -16,21 +18,28 @@ const LoadingScreen = (props) => {
   return (
     <>
       <div className={styles.page}>
-        <h2 className={messageStyles}>
-          {props.message.message}
-        </h2>
-        <div className={styles['loading-container']}>
-          <ProgressBar
-            displayMessage={displayMessage}
-            setLoading={props.setLoading}
-          />
-        </div>
-        <div className={styles['actions-container']}>
-          {finishedLoading && <div className={styles.actions}>
-            {finishedLoading && <button>Return to details</button>} {/* If game is already in database */}
-            {finishedLoading && <button>Search new game</button>} {/* Either or */}
-            {finishedLoading && <button>Try Again</button>} {/* If request fails */}
-          </div> }
+        <div className={styles.card}>
+          <h2 className={messageStyles}>{props.message.message}</h2>
+          <div className={styles['loading-container']}>
+            <ProgressBar
+              displayMessage={displayMessage}
+              setLoading={props.setLoading}
+            />
+          </div>
+          <div className={styles['actions-container']}>
+            {finishedLoading && (
+              <div className={styles.actions}>
+                {finishedLoading && <button>Return to details</button>}{' '}
+                {/* If game is already in database */}
+                {finishedLoading && ctx.requestMethod == 'POST' && (
+                  <button>Search new game</button>
+                )}{' '}
+                {/* Either or */}
+                {finishedLoading && <button>Try Again</button>}{' '}
+                {/* If request fails */}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </>

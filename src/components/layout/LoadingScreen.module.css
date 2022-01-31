@@ -22,24 +22,36 @@
     padding: 10px 30px;
 }
 
-.loading-container {
-    height: 200px;
+.card {
     display:flex;
-    justify-content:center;
+    flex-direction: column;
+    border: 3px solid red;
+    width: 80%;
+    height: 80%;
+    background-color:white;
+    border-radius: 15px;
+    justify-content: center;
     align-items: center;
 }
 
+.loading-container {
+    height: 230px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 200px;
+}
+
 .message {
-    display:none;
+    display: none;
 }
 
 .message-loaded {
-    position:absolute;
-    top: 20%;
-    display:block;
+    position: relative;
+    top: -20%;
+    display: block;
     color:red;
-    font-size:2rem;
-    margin-bottom: 1rem;
+    font-size: 2rem;
 }
 
 .page {
@@ -52,6 +64,7 @@
     flex-direction:column;
     justify-content:center;
     text-align:center;
+    align-items: center;
 }
 
 @keyframes slide-up-fade-in{
@@ -64,3 +77,4 @@
         transform:  translate(0px,0px)  ;
     }
 }
+

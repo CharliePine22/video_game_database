@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import styles from './GameDetails.module.css';
@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDoorClosed } from '@fortawesome/free-solid-svg-icons';
 import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 import LoadingScreen from '../layout/LoadingScreen';
+import { ResultsProvider } from '../../contexts/ResultsContext';
 
 const GameDetails = (props) => {
   const game = props.game;
@@ -16,6 +17,7 @@ const GameDetails = (props) => {
   const [mongoMessage, setMongoMessage] = useState('');
   const doorOpenIcon = <FontAwesomeIcon icon={faDoorOpen} />;
   const doorClosedIcon = <FontAwesomeIcon icon={faDoorClosed} />;
+  const ctx = useContext(ResultsProvider);
 
   useEffect(() => {
     // Fetch game series list after component renders
@@ -61,7 +63,7 @@ const GameDetails = (props) => {
         }
         const data = await response.json();
         setMongoMessage(data);
-        console.log(data)
+        ctx.setRequest('POST');
       } catch (e) {
         console.log(e);
       }

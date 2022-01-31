@@ -8,7 +8,7 @@ async function handler(req, res) {
         const db = client.db()
         const videoGamesCollection = db.collection('video games');
         const item = await videoGamesCollection.find({"id":dataId}).count() > 0;
-        if(item) {
+        if (item) {
             res.status(201).json({message: `${data.name} is already in your collection!`});
         } else{
             // const result = await videoGamesCollection.insertOne(data);
@@ -17,7 +17,6 @@ async function handler(req, res) {
 
         client.close()
 
-        res.status(201).json({message: item});
     } else if (req.method == 'GET') {
         //
     }

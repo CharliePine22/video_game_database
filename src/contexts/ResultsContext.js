@@ -3,15 +3,15 @@ import { createContext, useState } from 'react'
 const ResultsContext = createContext()
 
 export const ResultsProvider = (props) => {
-    const [results, setResults] = useState([]);
+    const [requestMethod, setRequestMethod] = useState()
 
-    const setResultsData = (data) => {
-        setResults(data);
-    };
+    const setRequest = (request) => {
+        setRequestMethod(request)
+    }
 
     const contextValue = {
-        data: results,
-        setResultsData,
+        requestMethod,
+        setRequest
     };
 
     return (
