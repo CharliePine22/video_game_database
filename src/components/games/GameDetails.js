@@ -13,6 +13,7 @@ const GameDetails = (props) => {
   const [gameSeriesList, setGameSeriesList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showFullDescription, setShowFullDescription] = useState(false);
+  const [mongoMessage, setMongoMessage] = useState('');
   const doorOpenIcon = <FontAwesomeIcon icon={faDoorOpen} />;
   const doorClosedIcon = <FontAwesomeIcon icon={faDoorClosed} />;
 
