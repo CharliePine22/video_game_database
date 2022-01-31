@@ -60,7 +60,8 @@ const GameDetails = (props) => {
           throw new Error(response.statusText);
         }
         const data = await response.json();
-        console.log(data);
+        setMongoMessage(data);
+        console.log(data)
       } catch (e) {
         console.log(e);
       }
@@ -77,7 +78,7 @@ const GameDetails = (props) => {
   if (loading) {
     return (
       <>
-          <LoadingScreen setLoading={setLoading}/>
+          <LoadingScreen message={mongoMessage} setLoading={setLoading}/>
       </>
     );
   }

@@ -11,7 +11,8 @@ const ProgressBar = (props) => {
       counter++;
       setProgress(counter);
       if (counter == 100) {
-        setTimeout(function() {props.setLoading(false)}, 3000);
+        props.displayMessage();
+        // setTimeout(function() {props.setLoading(false)}, 3000);
         clearInterval(interval);
       }
     }, 100);
@@ -25,14 +26,16 @@ const ProgressBar = (props) => {
     textAlign: 'right',
   };
 
-  return <>
+  return (
+    <>
       <SlotsAnimation progress={progress} />
-    <div className={styles.container}>
-      <div style={fillerStyles}>
-        <span className={styles.label}>{`${progress}%`}</span>
+      <div className={styles.container}>
+        <div style={fillerStyles}>
+          <span className={styles.label}>{`${progress}%`}</span>
+        </div>
       </div>
-    </div>
     </>
+  );
 };
 
 export default ProgressBar;

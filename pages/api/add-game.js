@@ -9,16 +9,17 @@ async function handler(req, res) {
         const videoGamesCollection = db.collection('video games');
         const item = await videoGamesCollection.find({"id":dataId}).count() > 0;
         if(item) {
-            // const result = await videoGamesCollection.insertOne(data);
             res.status(201).json({message: `${data.name} is already in your collection!`});
         } else{
-           
+            // const result = await videoGamesCollection.insertOne(data);
             res.status(201).json({message: `${data.name} added successfully!`});
         }
 
         client.close()
 
         res.status(201).json({message: item});
+    } else if (req.method == 'GET') {
+        //
     }
 
 }

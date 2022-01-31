@@ -6,19 +6,19 @@ const SlotsAnimation = (props) => {
   const messages = [
     'Connecting to database...',
     'Collecting game data...',
-    'Adding game data to collection...',
+    'Communcating request to server...',
     'Saving collection data...',
-    'Game successfully added!',
+    'Closing connection to database...',
   ];
 
-  if(props.progress == 25) {
-      messageRef.current.style.top = '-40px';
+  if (props.progress == 25) {
+    messageRef.current.style.top = '-40px';
   } else if (props.progress == 50) {
-      messageRef.current.style.top = '-90px';
+    messageRef.current.style.top = '-90px';
   } else if (props.progress == 75) {
-      messageRef.current.style.top = '-140px';
+    messageRef.current.style.top = '-140px';
   } else if (props.progress == 100) {
-      messageRef.current.style.top = '-190px';
+    messageRef.current.style.top = '-190px';
   }
 
   return (

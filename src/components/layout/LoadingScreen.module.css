@@ -1,9 +1,49 @@
+.actions {
+    position:relative;
+    top:30px;
+    animation: slide-up-fade-in ease 1s;
+    animation-iteration-count: 1;
+    transform-origin: 50% 50%;
+    animation-fill-mode:forwards; /*when the spec is finished*/
+}
+
+.actions-container {
+    display:flex;
+    justify-content: space-evenly;
+    width:100%;
+    position:relative;
+}
+
+.actions-container button {
+    background-color:red;
+    color:white;
+    border-radius: 15px;
+    border:1px solid white;
+    padding: 10px 30px;
+}
+
 .loading-container {
+    height: 200px;
     display:flex;
     justify-content:center;
+    align-items: center;
+}
+
+.message {
+    display:none;
+}
+
+.message-loaded {
+    position:absolute;
+    top: 20%;
+    display:block;
+    color:red;
+    font-size:2rem;
+    margin-bottom: 1rem;
 }
 
 .page {
+    position:relative;
     height: 100vh;
     width: 100%;
     background-color:black;
@@ -11,4 +51,16 @@
     display:flex;
     flex-direction:column;
     justify-content:center;
+    text-align:center;
+}
+
+@keyframes slide-up-fade-in{
+    0% {
+        opacity:0;
+        transform:  translate(0px,40px)  ;
+    }
+    100% {
+        opacity:1;
+        transform:  translate(0px,0px)  ;
+    }
 }
