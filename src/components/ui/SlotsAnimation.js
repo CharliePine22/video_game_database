@@ -3,6 +3,7 @@ import styles from './SlotsAnimation.module.css';
 
 const SlotsAnimation = (props) => {
   const messageRef = useRef();
+  
   const messages = [
     'Connecting to database...',
     'Collecting game data...',

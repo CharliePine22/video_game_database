@@ -1,10 +1,12 @@
 import ProgressBar from '../ui/ProgressBar';
 import styles from './LoadingScreen.module.css';
 import { useState, useContext } from 'react';
+import { useRouter } from 'next/router';
 import ResultsContext from '../../contexts/ResultsContext';
 
 const LoadingScreen = (props) => {
   const [finishedLoading, setFinishedLoading] = useState(false);
+  const router = useRouter();
   const ctx = useContext(ResultsContext);
 
   const displayMessage = () => {

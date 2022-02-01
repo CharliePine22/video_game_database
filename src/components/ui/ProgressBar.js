@@ -28,7 +28,9 @@ const ProgressBar = (props) => {
 
   return (
     <>
-      <SlotsAnimation progress={progress} />
+      <div className={styles.slots}>
+        <SlotsAnimation progress={progress} />
+      </div>
       <div className={styles.container}>
         <div style={fillerStyles}>
           <span className={styles.label}>{`${progress}%`}</span>
