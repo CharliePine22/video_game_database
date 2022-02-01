@@ -1,4 +1,5 @@
 import '../styles/globals.css';
+import NextNprogress from 'nextjs-progressbar';
 import { useState } from 'react';
 import LoadingScreen from '../src/components/layout/LoadingScreen';
 import Router from 'next/router';
@@ -21,6 +22,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <ResultsProvider>
+      <NextNprogress color='#FF0000'/>
         <NavigationBar />
         <Component {...pageProps} />
       </ResultsProvider>

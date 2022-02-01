@@ -8,11 +8,15 @@ async function handler(req, res) {
         const db = client.db()
         const videoGamesCollection = db.collection('video games');
         const item = await videoGamesCollection.find({"id":dataId}).count() > 0;
-        if (item) {
-            res.status(201).json({message: `${data.name} is already in your collection!`});
-        } else{
-            // const result = await videoGamesCollection.insertOne(data);
-            res.status(201).json({message: `${data.name} added successfully!`});
+        try {
+            if (item) {
+                res.status(201).json({message: `${data.name} is already in your collection!`});
+            } else {
+                // const result = await videoGamesCollection.insertOne(data);
+                res.status(201).json({message: `${data.name} added successfully!`});
+            }
+        } catch(err) {
+            res.status(500).json({message: 'There was an error adding the game, please try again!'});
         }
 
         client.close()

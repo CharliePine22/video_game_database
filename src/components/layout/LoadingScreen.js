@@ -1,14 +1,20 @@
 import ProgressBar from '../ui/ProgressBar';
 import styles from './LoadingScreen.module.css';
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
-import ResultsContext from '../../contexts/ResultsContext';
 
 const LoadingScreen = (props) => {
   const [finishedLoading, setFinishedLoading] = useState(false);
   const router = useRouter();
-  const ctx = useContext(ResultsContext);
+  
+  const returnToGameDetailsHandler = () => {
+    props.setLoading(false);
+  }
 
+  const returnToSearchPageHandler = () => {
+    router.replace('/search');
+  }
+  
   const displayMessage = () => {
     setFinishedLoading(true);
   };
@@ -31,13 +37,13 @@ const LoadingScreen = (props) => {
           <div className={styles['actions-container']}>
             {finishedLoading && (
               <div className={styles.actions}>
-                {finishedLoading && <button>Return to details</button>}{' '}
+                {finishedLoading && <button onClick={returnToGameDetailsHandler}>Return to details</button>}{' '}
                 {/* If game is already in database */}
-                {finishedLoading && ctx.requestMethod == 'POST' && (
-                  <button>Search new game</button>
+                {finishedLoading && props.requestMethod == 'POST' && (
+                  <button onClick={returnToSearchPageHandler}>Search new game</button>
                 )}{' '}
                 {/* Either or */}
-                {finishedLoading && <button>Try Again</button>}{' '}
+                {finishedLoading && props.requestMethod == 'GET' && <button>Try Again</button>}{' '}
                 {/* If request fails */}
               </div>
             )}

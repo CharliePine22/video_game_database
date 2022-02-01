@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDoorClosed } from '@fortawesome/free-solid-svg-icons';
 import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 import LoadingScreen from '../layout/LoadingScreen';
-import { ResultsProvider } from '../../contexts/ResultsContext';
+import { ResultsContext } from '../../contexts/ResultsContext';
 
 const GameDetails = (props) => {
   const game = props.game;
@@ -17,7 +17,7 @@ const GameDetails = (props) => {
   const [mongoMessage, setMongoMessage] = useState('');
   const doorOpenIcon = <FontAwesomeIcon icon={faDoorOpen} />;
   const doorClosedIcon = <FontAwesomeIcon icon={faDoorClosed} />;
-  const ctx = useContext(ResultsProvider);
+  const ctx = useContext(ResultsContext);
 
   useEffect(() => {
     // Fetch game series list after component renders
@@ -80,7 +80,7 @@ const GameDetails = (props) => {
   if (loading) {
     return (
       <>
-          <LoadingScreen message={mongoMessage} setLoading={setLoading}/>
+          <LoadingScreen requestMethod={ctx.method} message={mongoMessage} setLoading={setLoading}/>
       </>
     );
   }

@@ -1,0 +1,22 @@
+.card {
+    width: 85%;
+    height: 800px;
+    border-radius: 20px;
+    background-color: black;
+}
+
+.container {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    margin-top: 73px;
+    color:red;
+    background-color:black;
+    text-align:center;
+    height: 100vh;
+    background-image: url('/assets/video_game_collection.jpg'); 
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
