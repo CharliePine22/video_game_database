@@ -1,0 +1,78 @@
+.actions {
+    width:100%;
+    display:flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.actions button {
+    background-color: red;
+    padding: .5rem;
+    border-radius: 5px;
+    color:white;
+    border: 3px solid white;
+}
+
+.actions button:hover {
+    background-color: black;
+    color:red;
+}
+
+.card {
+    width: 85%;
+    height: 1000px;
+    border-radius: 20px;
+    background-color: black;
+    box-shadow: 0 0 10px red;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.card h1 {
+    margin: 15px 0;
+}
+
+.container {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:red;
+    background-color:black;
+    text-align:center;
+    height: 100vh;
+    background-image: url('/assets/video_game_collection.jpg'); 
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.form-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    height: 100%;
+}
+
+.form {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 20%;
+}
+
+.image-container {
+    margin-top: 20px;
+    width: 85%;
+    height: 600px;
+}
+
+.image-container img {
+    width: 100%;
+    height: 600px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px white;
+}

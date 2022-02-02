@@ -28,7 +28,7 @@ const NavigationBar = () => {
               <Nav.Link className={styles.link} href="/search">Add Game</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link className={styles.link} href="/all_games">All Games</Nav.Link>
+              <Nav.Link className={styles.link} href="/games_dashboard">All Games</Nav.Link>
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>
