@@ -1,4 +1,3 @@
-import NavigationBar from './NavigationBar';
 import CarouselItems from '../ui/Carousel';
 import Fader from '../ui/Fader';
 import styles from './Home.module.css';
@@ -11,7 +10,6 @@ const Home = () => {
 
   return (
     <>
-      <NavigationBar />
       <div className={styles.home}>
         <Fader text="Video Game Database" />
       </div>

@@ -136,12 +136,12 @@ const GameDetails = (props) => {
               {/* If the developers list is empty, show the publishers list */}
               {game.developers.length != 0
                 ? game.developers.map((game, index, arr) => (
-                    <li>
+                    <li key={game.name}>
                       {game.name} {index != arr.length - 1 ? '| ' : ''}
                     </li>
                   ))
                 : game.publishers.map((game, index, arr) => (
-                    <li>
+                    <li key={game.name}>
                       {game.name} {index != arr.length - 1 ? '| ' : ''}
                     </li>
                   ))}

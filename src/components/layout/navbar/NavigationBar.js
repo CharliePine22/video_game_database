@@ -3,20 +3,22 @@ import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import styles from './NavigationBar.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import navbarImage from '../../../../public/assets/consoles.png';
+import Image from 'next/image'
 
 const NavigationBar = () => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
       <Container>
         <Navbar.Brand className={styles['nav-brand']} href="/">
-          <img
-            src="assets/consoles.png"
-            width="150"
-            height="30"
+          <Image
+            src={navbarImage}
+            width="180"
+            height="27"
             className={styles['nav-logo']}
             alt=""
           />
-          VG Database
+          Video Games Collection
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className='justify-content-end' id="basic-navbar-nav">

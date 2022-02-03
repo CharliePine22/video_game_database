@@ -1,6 +1,11 @@
 .actions {
+    display:flex;
+    justify-content:space-evenly;
+    flex-wrap: wrap;
+    align-content: space-between;
     position:relative;
-    top:30px;
+    top: 70%;
+    width:100%;
     animation: slide-up-fade-in ease 1s;
     animation-iteration-count: 1;
     transform-origin: 50% 50%;
@@ -11,6 +16,7 @@
     display:flex;
     justify-content: space-evenly;
     width:100%;
+    height: 15%;
     position:relative;
 }
 
@@ -20,7 +26,8 @@
     border-radius: 15px;
     border: 3px solid white;
     padding: 10px 30px;
-    margin: 0 10px;
+    font-size: 1.25rem;
+
 }
 
 .actions-container button:hover {
@@ -34,7 +41,7 @@
     border: 3px solid red;
     width: 80%;
     height: 80%;
-    background-color:rgb(56, 56, 56);
+    background-color:rgb(46, 46, 46);
     border-radius: 15px;
     justify-content: center;
     align-items: center;
@@ -56,10 +63,12 @@
 
 .message-loaded {
     position: relative;
+    font-weight: bold;
     top: -20%;
+    margin: 0 10px;
     display: block;
     color:red;
-    font-size: 2rem;
+    font-size: 2.5rem;
     animation: slide-up-fade-in ease 1s;
     animation-iteration-count: 1;
     transform-origin: 50% 50%;

@@ -1,7 +1,7 @@
 .container {
     position:absolute;
     top: 50%;
-    height: 20px;
+    height: 30px;
     width: 75%;
     background-color: #e0e0de;
     border-radius: 50px;
@@ -9,16 +9,9 @@
     margin: 50px;
 }
 
-.container h3 {
-    position: relative;
-}
-
 .label {
-    padding: 5;
+    font-size:1.5rem;
+    padding: 5px;
     color: white;
     font-weight: 'bold';
-}
-
-.slots {
-    display:flex;
 }

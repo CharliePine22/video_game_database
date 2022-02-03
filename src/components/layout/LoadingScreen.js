@@ -27,7 +27,7 @@ const LoadingScreen = (props) => {
     <>
       <div className={styles.page}>
         <div className={styles.card}>
-          <h2 className={messageStyles}>{props.message.message}</h2>
+          <h2 className={messageStyles}>{finishedLoading && props.message.message}</h2>
           <div className={styles['loading-container']}>
             <ProgressBar
               displayMessage={displayMessage}
@@ -37,14 +37,16 @@ const LoadingScreen = (props) => {
           <div className={styles['actions-container']}>
             {finishedLoading && (
               <div className={styles.actions}>
-                {finishedLoading && <button onClick={returnToGameDetailsHandler}>Return to details</button>}{' '}
                 {/* If game is already in database */}
+                {finishedLoading && <button onClick={returnToGameDetailsHandler}>Return to details</button>}
+                {/* Either or */}
                 {finishedLoading && props.requestMethod == 'POST' && (
                   <button onClick={returnToSearchPageHandler}>Search new game</button>
-                )}{' '}
-                {/* Either or */}
-                {finishedLoading && props.requestMethod == 'GET' && <button>Try Again</button>}{' '}
+                )}
+                {/* After adding game */}
+                {finishedLoading && <button onClick={returnToGameDetailsHandler}>View game in collection</button>}
                 {/* If request fails */}
+                {finishedLoading && props.requestMethod == 'GET' && <button>Try Again</button>}
               </div>
             )}
           </div>
