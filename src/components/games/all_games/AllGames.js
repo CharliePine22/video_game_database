@@ -5,6 +5,7 @@ import AllGamesItem from './AllGamesItem';
 const AllGames = (props) => {
   const [filterView, setFilterView] = useState('');
   const allGames = JSON.parse(props.all_games);
+  console.log(allGames)
 
   return (
     <>
@@ -22,6 +23,9 @@ const AllGames = (props) => {
           <div className={styles['games-container']}>
             <h3>Library</h3>
             <div className={styles.library}>
+              {allGames.map((game) => <AllGamesItem key={game._id} title={game.name} image={game['background_image']}/>)}
+
+
               <AllGamesItem games={allGames} />
               <AllGamesItem games={allGames} />
               <AllGamesItem games={allGames} />

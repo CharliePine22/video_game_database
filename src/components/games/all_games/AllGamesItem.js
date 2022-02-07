@@ -3,7 +3,10 @@ import styles from './AllGamesItem.module.css';
 const AllGamesItem = (props) => {
     return <>
     <div className={styles.container}>
-        <img src='https://static.wikia.nocookie.net/finalfantasy/images/3/3a/Tidus_art.jpg' />
+        <div className={styles['image-container']}>
+            <h5 className={styles.title}>{props.title}</h5>
+            <img src={props.image} />
+        </div>
     </div>
     </>
 }   

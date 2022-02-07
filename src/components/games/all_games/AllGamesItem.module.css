@@ -1,19 +1,39 @@
 .container {
-    height: 250px;
-    width: 200px; 
+    position:relative;
+    height: 300px;
+    width: 250px; 
     background-color: white;
     border-radius: 5px;
-    margin: .5rem;
-    box-shadow: 0 0 10px red;
-    border: none;
-}
-
-.container img {
+    margin: 1rem .5rem;
     border-radius: 4px;
 }
 
-.container:hover {
-    cursor:pointer;
-    transform: scale(1.1);
+.title {
+    display:none;
+    position:absolute;
+    left: 25%;
+    top: 3%;
+}
+
+.image-container {
+    height:100%;
+    width: 100%;
+}
+
+.image-container img {
+    border-radius: 4px;
+    box-shadow: 0 0 11px red;
+    height:100%;
+    width: 100%;
+}
+
+.image-container:hover {
+    cursor: pointer;
+    transform: translate3d(0, 0, 0) scale(1.1);
     transition: .5s;
 }
+
+.image-container:hover > .title {
+    display:block;
+}
+

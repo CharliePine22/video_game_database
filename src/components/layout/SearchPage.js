@@ -1,11 +1,9 @@
 import Searchbar from '../games/Searchbar';
 import styles from './SearchPage.module.css';
-import NavigationBar from './NavigationBar';
 
 const SearchPage = () => {
   return (
     <>
-      <NavigationBar />
       <div className={styles.card}>
         <div className={styles.search}>
           <h1>Search</h1>
