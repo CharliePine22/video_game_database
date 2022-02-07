@@ -12,7 +12,7 @@ async function handler(req, res) {
             if (item) {
                 res.status(201).json({message: `${data.name} is already in your collection!`});
             } else {
-                // const result = await videoGamesCollection.insertOne(data);
+                const result = await videoGamesCollection.insertOne(data);
                 res.status(201).json({message: `${data.name} added successfully!`});
             }
         } catch(err) {
@@ -22,7 +22,7 @@ async function handler(req, res) {
         client.close()
 
     } else if (req.method == 'GET') {
-        //
+      
     }
 
 }

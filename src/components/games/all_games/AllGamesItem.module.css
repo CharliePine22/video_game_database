@@ -1,0 +1,19 @@
+.container {
+    height: 250px;
+    width: 200px; 
+    background-color: white;
+    border-radius: 5px;
+    margin: .5rem;
+    box-shadow: 0 0 10px red;
+    border: none;
+}
+
+.container img {
+    border-radius: 4px;
+}
+
+.container:hover {
+    cursor:pointer;
+    transform: scale(1.1);
+    transition: .5s;
+}
