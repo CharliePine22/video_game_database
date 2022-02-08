@@ -1,9 +1,9 @@
 .card {
-    width: 93%;
-    height: 85%;
+    width: 96%;
+    height: 90%;
     border-radius: 20px;
     background-color: rgb(49, 49, 49);
-    display:flex;
+    display: flex;
     box-shadow: 0 0 10px red;
 }
 
@@ -88,30 +88,29 @@
 }
 
 .games-container {
-    display:flex;
+    display: flex;
     align-items: center;
     flex-direction: column;
     width: 75%;
-    height:100%;
-    border-radius:20px;
+    height: 100%;
+    border-radius: 20px;
     margin-left: 10px;
-    overflow:auto
+    overflow: auto
 }
 
 .games-container h3 {
     margin: 20px 10px;
 }
 
-.games-container::-webkit-scrollbar { 
-    display: none; 
-    }
+.games-container::-webkit-scrollbar {
+    display: none;
+}
 
 .library {
-    display:flex;
-    flex-wrap:wrap;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: flex-start;
     align-content: flex-start;
     height: 100%;
     width: 100%;
 }
-

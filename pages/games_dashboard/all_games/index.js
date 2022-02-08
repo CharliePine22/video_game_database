@@ -7,7 +7,7 @@ const AllGamesPage = ( { allGames } ) => {
     </h1>
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
     const client = await MongoClient.connect('mongodb+srv://cpine22:knight21@cluster0.mqwzb.mongodb.net/video_games?retryWrites=true&w=majority')
     const db = client.db()
     const videoGamesCollection = db.collection('video games');

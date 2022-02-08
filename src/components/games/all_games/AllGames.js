@@ -3,9 +3,13 @@ import styles from './AllGames.module.css';
 import AllGamesItem from './AllGamesItem';
 
 const AllGames = (props) => {
+  // List by name or list my card
   const [filterView, setFilterView] = useState('');
   const allGames = JSON.parse(props.all_games);
-  console.log(allGames)
+  const sortedGames = allGames.sort(function(a, b) {
+    if(a.name < b.name) { return -1; }
+    if(a.name > b.name) { return 1; }
+  })
 
   return (
     <>
@@ -23,16 +27,7 @@ const AllGames = (props) => {
           <div className={styles['games-container']}>
             <h3>Library</h3>
             <div className={styles.library}>
-              {allGames.map((game) => <AllGamesItem key={game._id} title={game.name} image={game['background_image']}/>)}
-
-
-              <AllGamesItem games={allGames} />
-              <AllGamesItem games={allGames} />
-              <AllGamesItem games={allGames} />
-              <AllGamesItem games={allGames} />
-              <AllGamesItem games={allGames} />
-              <AllGamesItem games={allGames} />
-              <AllGamesItem games={allGames} />
+              {sortedGames.map((game) => <AllGamesItem key={game._id} title={game.name} image={game['background_image']}/>)}
             </div>
           </div>
         </div>

@@ -14,6 +14,10 @@ const LoadingScreen = (props) => {
   const returnToSearchPageHandler = () => {
     router.replace('/search');
   }
+
+  const viewGameInCollectionHandler = () => {
+    router.replace('/games_dashboard/all_games')
+  }
   
   const displayMessage = () => {
     setFinishedLoading(true);
@@ -44,7 +48,7 @@ const LoadingScreen = (props) => {
                   <button onClick={returnToSearchPageHandler}>Search new game</button>
                 )}
                 {/* After adding game */}
-                {finishedLoading && <button onClick={returnToGameDetailsHandler}>View game in collection</button>}
+                {finishedLoading && <button onClick={viewGameInCollectionHandler}>View game in collection</button>}
                 {/* If request fails */}
                 {finishedLoading && props.requestMethod == 'GET' && <button>Try Again</button>}
               </div>
