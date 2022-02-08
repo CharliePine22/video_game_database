@@ -1,7 +1,7 @@
 .button {
     position: relative;
-    color:white;
-    opacity: 0.2;
+    color:black;
+    opacity: .35;
     font-size:1.5rem;
     top:18%;
     left:18%;
@@ -23,14 +23,16 @@
     position:relative;
     height: 40px;
     width: 40px;
-    background-color:black;
+    background-color: rgba(84, 84, 84, 0);
     bottom:50px;
     left: 10px;
     border-radius: 4px;
 }
 
 .edit:hover {
-
+    cursor: hand;
+    background-color: rgba(84, 84, 84, .5);
+    color:red;
 }
 
 .image-container {
@@ -39,7 +41,7 @@
     width: 100%;
     overflow: hidden;
     transform-origin: 100% 0;
-    box-shadow: 0px 10px 39px 10px rgba(62, 66, 66, 0.22);
+    box-shadow: 0px 10px 39px 10px rgba(62, 66, 66, 0.1);
     transition: transform 0.3s ease-in-out;
     box-shadow: 0 5px 10px black;
 }
@@ -67,6 +69,10 @@
 .image-container:hover>.gradient {
     height: 100%;
 	opacity: 1;
+}
+
+.image-container:hover>.edit {
+    background-color: rgba(84, 84, 84, .15);
 }
 
 .gradient {

@@ -19,6 +19,8 @@ const GameDetails = (props) => {
   const doorClosedIcon = <FontAwesomeIcon icon={faDoorClosed} />;
   const ctx = useContext(ResultsContext);
 
+  console.log(game)
+
   useEffect(() => {
     // Fetch game series list after component renders
     const fetchGameSeries = async () => {
@@ -152,7 +154,7 @@ const GameDetails = (props) => {
             <h3 className={styles.headers}>Platforms</h3>
             <ul>
               {game.platforms.map((p, index, arr) => (
-                <span>
+                <span key={p.platform}>
                   {p.platform.name} {index != arr.length - 1 ? '| ' : ''}
                 </span>
               ))}
