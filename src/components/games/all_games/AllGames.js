@@ -1,20 +1,25 @@
 import { useState } from 'react';
 import styles from './AllGames.module.css';
 import AllGamesItem from './AllGamesItem';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSteam } from '@fortawesome/free-solid-svg-icons';
 
 const AllGames = (props) => {
   // List by name or list my card
+  // FILTER BY PLATFORM, COMPLETED, COMPLETED, PLAYING, BACKLOG, 
+  console.log(props.steamGames)
   const [filterView, setFilterView] = useState('');
   const allGames = JSON.parse(props.all_games);
+  const steamIcon = <FontAwesomeIcon icon={faSteam}/>
   const sortedGames = allGames.sort(function(a, b) {
     if(a.name < b.name) { return -1; }
     if(a.name > b.name) { return 1; }
-  })
+  });
 
   return (
     <>
       <div className={styles.container}>
-        <h1>All Games</h1>
+        <span><h1>All Games</h1>{steamIcon}</span>
         <div className={styles.card}>
           <div className={styles['filters-container']}>
             <h3>Filter Options</h3>

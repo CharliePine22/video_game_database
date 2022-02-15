@@ -8,6 +8,7 @@ import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 import LoadingScreen from '../layout/LoadingScreen';
 import { ResultsContext } from '../../contexts/ResultsContext';
 
+
 const GameDetails = (props) => {
   const game = props.game;
   const router = useRouter();
