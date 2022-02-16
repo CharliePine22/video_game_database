@@ -13,7 +13,7 @@ const TickerBar = () => {
   return (
     <PageVisibility onChange={handleVisibilityChange}>
       {pageIsVisible && (
-        <Ticker mode='smooth' speed='7' className={styles.ticker}>
+        <Ticker mode='smooth' speed={parseInt('7')} className={styles.ticker}>
           {({ index }) => (
               <>
                   <h1 className={styles.text}>This is the Headline of element #{index}!</h1>
