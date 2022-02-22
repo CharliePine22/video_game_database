@@ -10,13 +10,14 @@ async function handler(req, res) {
         const item = await videoGamesCollection.find({"id":dataId}).count() > 0;
         try {
             if (item) {
-                res.status(201).json({message: `${data.name} is already in your collection!`});
+                res.status(201).json({message: `${data.name} is already in your collection!`, status:'failed'});
             } else {
                 const result = await videoGamesCollection.insertOne(data);
-                res.status(201).json({message: `${data.name} added successfully!`});
+                res.status(201).json({message: `${data.name} added successfully!`, status:'success'});
             }
         } catch(err) {
-            res.status(500).json({message: 'There was an error adding the game, please try again!'});
+            console.log(err)
+            res.status(400).json({message: 'There was an error adding the game, please try again!'});
         }
 
         client.close()

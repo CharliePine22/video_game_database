@@ -12,6 +12,7 @@ const SearchResults = (props) => {
           {results.map((game) => (
             game['background_image'] != null &&
             <SearchResultsItem
+              game={game}
               id={game.id}
               key={game.id}
               slug={game.slug}

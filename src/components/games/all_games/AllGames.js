@@ -2,7 +2,6 @@ import { useState } from 'react';
 import styles from './AllGames.module.css';
 import AllGamesItem from './AllGamesItem';
 import { FaSteam } from 'react-icons/fa';
-import { useUser } from '@auth0/nextjs-auth0';
 import SteamAuth from '../../ui/SteamAuth';
 
 const AllGames = (props) => {
@@ -10,7 +9,6 @@ const AllGames = (props) => {
   // FILTER BY PLATFORM, COMPLETED, COMPLETED, PLAYING, BACKLOG,
   console.log(props.steamGames);
   const [filterView, setFilterView] = useState('');
-  const { user, error, isLoading } = useUser();
 
   // MongoDB games
   const allGames = JSON.parse(props.all_games);
