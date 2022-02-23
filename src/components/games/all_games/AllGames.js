@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styles from './AllGames.module.css';
 import AllGamesItem from './AllGamesItem';
 import { FaSteam } from 'react-icons/fa';
-import SteamAuth from '../../ui/SteamAuth';
+// import SteamAuth from '../../ui/SteamAuth';
 
 const AllGames = (props) => {
   // List by name or list my card
@@ -34,7 +34,7 @@ const AllGames = (props) => {
               <button>List View</button>
               <button>Filter By</button>
               <a href="/api/auth/steam">Login</a>
-              <SteamAuth />
+              {/* <SteamAuth /> */}
             </div>
           </div>
           <div className={styles['games-container']}>
