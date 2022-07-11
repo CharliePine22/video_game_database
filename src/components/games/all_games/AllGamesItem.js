@@ -7,6 +7,7 @@ import Carousel from '../../ui/Carousel';
 const AllGamesItem = (props) => {
   const [gameScreenShots, setGameScreenShots] = useState([]);
 
+  // Grab game screenshots for slideshow
   useEffect(() => {
     const fetchGameScreenshots = async () => {
       const response = await fetch(
@@ -18,12 +19,13 @@ const AllGamesItem = (props) => {
     fetchGameScreenshots();
   }, [props.key]);
 
-  console.log(gameScreenShots);
+  // console.log(gameScreenShots);
 
   return (
     <>
       <div className={styles.container}>
         <div className={styles['image-container']}>
+          <div className={styles.gradient} />
           <div className={styles.screenshots}></div>
           <h5 className={styles.title}>{props.title}</h5>
           <img src={props.image} />

@@ -1,25 +1,34 @@
+.card {
+  height: 100vh;
+  width: 100%;
+  background-color: transparent !important;
+}
+
+.footer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
 .footer img {
-    width: 100%;
-    height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 
 .search {
-    display:flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items:center;
-    color: red;
-    position: relative;
-    top: 100px;
-    margin-bottom: -100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  margin-top: 80px;
 }
 
 .search h1 {
-    padding-bottom: 1rem;
+  padding-bottom: 1rem;
 }
 
 .searchbar {
-    position:relative;
-    top: 680px;
-    margin-top: -500px;
 }

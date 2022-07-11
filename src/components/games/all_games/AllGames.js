@@ -6,12 +6,14 @@ import { FaSteam } from 'react-icons/fa';
 
 const AllGames = (props) => {
   // List by name or list my card
-  // FILTER BY PLATFORM, COMPLETED, COMPLETED, PLAYING, BACKLOG,
+  // FILTER BY PLATFORM, COMPLETED, PLAYING, BACKLOG
+
   console.log(props.steamGames);
   const [filterView, setFilterView] = useState('');
 
   // MongoDB games
   const allGames = JSON.parse(props.all_games);
+
   // Sort games alphabetically
   const sortedGames = allGames.sort(function (a, b) {
     if (a.name < b.name) {
@@ -33,14 +35,13 @@ const AllGames = (props) => {
               <button>Card View</button>
               <button>List View</button>
               <button>Filter By</button>
-              <a href="/api/auth/steam">Login</a>
+              {/* <a href='/api/auth/steam'>Login</a> */}
               {/* <SteamAuth /> */}
             </div>
           </div>
           <div className={styles['games-container']}>
-            <h3 className={styles.title}>
-              Library <FaSteam className={styles.icon} />
-            </h3>
+            <h3 className={styles.title}>Library</h3>
+            {/* <FaSteam className={styles.icon} /> */}
             <div className={styles.library}>
               {sortedGames.map((game) => (
                 <AllGamesItem
