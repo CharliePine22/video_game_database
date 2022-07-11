@@ -4,12 +4,9 @@ import { ResultsProvider } from '../src/contexts/ResultsContext';
 import { UserProvider } from '@auth0/nextjs-auth0';
 import NavigationBar from '../src/components/layout/navbar/NavigationBar';
 
-const domain = process.env.REACT_APP_AUTH0_DOMAIN;
-const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
-let test;
-
 function MyApp({ Component, pageProps }) {
-  if (typeof window !== "undefined") {
+  let test;
+  if (typeof window !== 'undefined') {
     // Client-side-only code
     test = window.location.origin;
   }
@@ -18,7 +15,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <UserProvider>
         <ResultsProvider>
-          <NextNprogress color="#FF0000" />
+          <NextNprogress color='#FF0000' />
           <NavigationBar />
           <Component {...pageProps} />
         </ResultsProvider>
