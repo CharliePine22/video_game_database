@@ -27,26 +27,15 @@
   color: #49ff18;
   position: relative;
   text-align: center;
-  top: 165px;
+  height: 100%;
 }
 
 .searchbar {
   width: 100%;
 }
 
-/* Mobile Devices */
-@media screen and (min-width: 320px) and (max-width: 500px) {
-  .search {
-    top: 140px;
-  }
-}
-
 /* Tablets */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-  .search {
-    top: 160px;
-  }
-
   .search p {
     margin-bottom: 25px;
     width: 84%;
