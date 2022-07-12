@@ -1,113 +1,119 @@
 .actions {
-    display:flex;
-    width:100%;
+  display: flex;
+  width: 100%;
 }
 
 .container {
-    display:flex;
-    align-items:center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .details {
-    text-decoration: none;
-    color: white;
-    border: 3px solid white;
-    padding: .5rem;
-    border-radius: 20px;
-    background-color: red;
-    margin-right: 20px;
+  text-decoration: none;
+  color: white;
+  border: 3px solid white;
+  padding: 0.5rem;
+  border-radius: 20px;
+  background-color: #49ff18;
+  margin-right: 20px;
 }
 
 .details:hover {
-    color:white;
-    background-color: rgb(153, 4, 4);
+  color: white;
+  background-color: #2ea80c;
 }
 
 .failed {
-    color:red;
-    font-size: 1rem;
-    margin: 0;
+  color: #49ff18;
+  font-size: 1rem;
+  margin: 0;
 }
 
 .game-info {
-    display:flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 55%;
 }
 
 .icon {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .image-container {
-    margin-right: 50px;
+  margin-right: 50px;
 }
 
 .image-container img {
-    height:250px;
-    width:250px;
+  height: 250px;
+  width: 250px;
 }
 
 .item {
-    margin-top: 10px;
-    list-style: none;
-    margin-bottom: 50px;
+  margin-top: 10px;
+  list-style: none;
+  margin-bottom: 50px;
+  width: 100%;
 }
 
 /* Loading spinner animation */
 .lds-ring {
-    display: inline-block;
-    position: relative;
-    width: 42px;
-    height: 30px;
+  display: inline-block;
+  position: relative;
+  width: 42px;
+  height: 30px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  top: -5px;
+  width: 26px;
+  height: 26px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+/* Spinnin Animation */
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
   }
-  .lds-ring div {
-    box-sizing: border-box;
-    display: block;
-    position: absolute;
-    top:-5px;
-    width: 26px;
-    height: 26px;
-    margin: 8px;
-    border: 8px solid #fff;
-    border-radius: 50%;
-    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: #fff transparent transparent transparent;
+  100% {
+    transform: rotate(360deg);
   }
-  .lds-ring div:nth-child(1) {
-    animation-delay: -0.45s;
-  }
-  .lds-ring div:nth-child(2) {
-    animation-delay: -0.3s;
-  }
-  .lds-ring div:nth-child(3) {
-    animation-delay: -0.15s;
-  }
-  @keyframes lds-ring {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
+}
 
 .quick-add {
-    width: 4rem;
-    border-radius: 20px;
-    background-color: black;
-    color: white;
-    border: 3px solid white;
-    border-width: 3px;
-    border-radius: var(border-width);
+  width: 4rem;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+  border: 3px solid white;
+  border-width: 3px;
+  border-radius: var(border-width);
 }
 
 .quick-add:hover {
-    background-color: rgb(33, 33, 33);
+  background-color: rgb(33, 33, 33);
 }
 
 .success {
-    color:rgb(0, 163, 0);
-    margin: 0;
-    padding-bottom: 5px;
-    font-size: 1.5rem;
+  color: rgb(0, 163, 0);
+  margin: 0;
+  padding-bottom: 5px;
+  font-size: 1.5rem;
 }

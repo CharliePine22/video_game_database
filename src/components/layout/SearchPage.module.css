@@ -12,6 +12,7 @@
   width: 100%;
   z-index: -1;
 }
+
 .footer img {
   width: 100%;
   height: 100%;
@@ -22,13 +23,32 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: red;
-  margin-top: 80px;
-}
-
-.search h1 {
-  padding-bottom: 1rem;
+  /* color: red; */
+  color: #49ff18;
+  position: relative;
+  text-align: center;
+  top: 165px;
 }
 
 .searchbar {
+  width: 100%;
+}
+
+/* Mobile Devices */
+@media screen and (min-width: 320px) and (max-width: 500px) {
+  .search {
+    top: 140px;
+  }
+}
+
+/* Tablets */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .search {
+    top: 160px;
+  }
+
+  .search p {
+    margin-bottom: 25px;
+    width: 84%;
+  }
 }

@@ -1,98 +1,311 @@
+.actions {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
 .card {
-    border-radius: 5px;
-    background-color: black;
-    height: 400px;
-    width: 70%;
-    box-shadow: 0px 0px 30px red;
-    padding: .25rem;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.85);
+  width: 75%;
+  height: 500px;
+  box-shadow: 0 0 0.5rem #fff, inset 0 0 0.5rem #fff, 0 0 1rem #49ff18,
+    inset 0 0 1rem #49ff18, 0 0 1rem #49ff18, inset 0 0 0rem #49ff18;
+  /* box-shadow: 0 0 0.5rem #fff, inset 0 0 0.5rem #fff, 0 0 2rem #49ff18,
+    inset 0 0 2rem #49ff18, 0 0 4rem #49ff18, inset 0 0 4rem #49ff18; */
+  border: 0.4rem solid #fff;
+  padding: 0.25rem;
 }
 
 .container {
-    display:flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .container button {
-    border: 1px solid red;
-    background-color: black;
-    color:white;
-    border-radius: 5px;
-    padding: .5rem;
-    /* width:400px; */
+  border: 1px solid #49ff18;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 10px;
+  /* width:400px; */
 }
 
 .container button:hover {
-    background-color: red;
-    border: 1px solid white;
+  background-color: #49ff18;
+  border: 1px solid white;
 }
 
-.container form {
-    color: red;
-    display:flex;
-    flex-direction:column;
-    text-align:center;
-    justify-content: flex-start;
-    align-items: center;
-    height:400px;
+.form {
+  height: 100%;
+  color: #49ff18;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.container input {
-    width: 400px;
-    margin-bottom: 25px;
-    border: 3px solid red;
-    border-radius: 5px;
-    outline-width: 0;
+.form button {
+  width: 180px;
+  padding: 15px 10px;
 }
 
-.container label {
-    font-size: 2.5em;
-    padding-bottom: 4.5rem;
-    padding-top: 1rem;
-    text-transform: uppercase;
+.form input {
+  width: 60%;
+  border: 1px solid #49ff18;
+  border-radius: 5px;
+  outline-width: 0;
+  position: relative;
+  bottom: 45px;
+  line-height: 1.5;
+  background: rgba(255, 255, 255, 0.1);
+  color: #49ff18;
+  animation: extendInputLarge 1.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.5s
+    1 forwards;
+}
+
+.form label {
+  font-size: 2.25em;
+  /* padding-bottom: 32px; */
+  text-transform: uppercase;
+  color: #49ff18;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #49ff18,
+    0 0 30px #49ff18, 0 0 40px #49ff18, 0 0 55px #49ff18, 0 0 75px #49ff18;
+}
+
+.form-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 50%;
+}
+
+.form-details p {
+  margin-bottom: 40px;
+  font-size: 1.2em;
+  width: 90%;
+}
+
+.error {
+  color: red;
+  transition: all 250ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
 
 .random {
-    margin-top:3rem;
-    display:flex;
-    align-items: baseline;
-    position:relative;
-}
-
-.random button {
-    margin-right: 1rem;
+  /* margin-top: 3rem; */
+  display: flex;
+  align-items: baseline;
+  position: relative;
 }
 
 .random p {
-    font-size: 1.25rem;
+  font-size: 1.25rem;
 }
 
-.random p:first-of-type:hover{
-    cursor: pointer;
+.random p:first-of-type:hover {
+  cursor: pointer;
 }
 
 .random p:hover + .tooltip {
-    display: block;
-    opacity: 1;
-    transition: opacity .55s ease-in .5s;
+  display: block;
+  opacity: 1;
+  transition: opacity 0.55s ease-in 0.5s;
 }
 
 .tooltip {
-    position:absolute;
-    right: -250px;
-    bottom: 10px;
-    opacity:0;
-    background-color: rgb(21, 21, 21);
-    height:125px;
-    width:200px;
-    border-radius: 5px;
+  position: absolute;
+  right: -250px;
+  bottom: 10px;
+  opacity: 0;
+  background-color: rgb(21, 21, 21);
+  height: 125px;
+  width: 200px;
+  border-radius: 5px;
 }
 
 .tooltip-message {
-    font-style: italic;
-    font-family: Apple Chancery, cursive;
-    font-size: 1.25rem;
+  font-style: italic;
+  font-family: Apple Chancery, cursive;
+  font-size: 1.25rem;
 }
 
-.tooltip:hover, .tooltip-message:hover {
-    cursor:default !important;
+.tooltip:hover,
+.tooltip-message:hover {
+  cursor: default !important;
+}
+
+/* Animation for extending the input bar on mobile */
+@keyframes extendInputSmall {
+  0% {
+    width: 0%;
+    opacity: 0;
+  }
+
+  100% {
+    width: 75%;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes extendInputSmall {
+  0% {
+    width: 0%;
+    opacity: 0;
+  }
+
+  100% {
+    width: 75%;
+    opacity: 1;
+  }
+}
+
+/* Blinking animation */
+@-webkit-keyframes blink {
+  100% {
+    box-shadow: 0 0 3px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #49ff18,
+      0 0 70px #49ff18, 0 0 80px #49ff18;
+  }
+}
+
+@keyframes blink {
+  100% {
+    box-shadow: 0 0 3px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #49ff18,
+      0 0 70px #49ff18, 0 0 80px #49ff18;
+  }
+}
+
+/* Animation for extending the input bar for tablets to small laptops */
+@keyframes extendInputMedium {
+  0% {
+    width: 0%;
+    opacity: 0;
+  }
+
+  100% {
+    width: 65%;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes extendInputMedium {
+  0% {
+    width: 0%;
+    opacity: 0;
+  }
+
+  100% {
+    width: 65%;
+    opacity: 1;
+  }
+}
+
+/* Animation for extending the input bar for laptops and desktops */
+@keyframes extendInputLarge {
+  0% {
+    width: 0%;
+    opacity: 0;
+  }
+
+  100% {
+    width: 60%;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes extendInputLarge {
+  0% {
+    width: 0%;
+    opacity: 0;
+  }
+
+  100% {
+    width: 60%;
+    opacity: 1;
+  }
+}
+
+/* Mobile Devices */
+@media screen and (min-width: 320px) and (max-width: 500px) {
+  .actions {
+    flex-direction: column;
+    justify-content: space-around;
+    height: 25%;
+  }
+
+  .card {
+    width: 88%;
+    height: 530px;
+  }
+
+  .form {
+    justify-content: space-evenly;
+  }
+
+  .form-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .form-details p {
+    margin-top: 35px;
+    width: 90%;
+    font-size: 0.8em;
+  }
+
+  .form input {
+    width: 75%;
+    bottom: 14px;
+    animation: extendInputSmall 1.5s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+      0.5s 1 forwards;
+    /* top: 0px; */
+  }
+
+  .form label {
+    font-size: 2em;
+  }
+
+  .form label h1 {
+    font-size: 1.8em;
+    /* font-size: 2em; */
+  }
+
+  .form button {
+    font-size: 0.8em;
+    padding: 10px 0;
+  }
+}
+
+/* Tablets */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .card {
+    width: 90%;
+    height: 470px;
+  }
+
+  .container button {
+    padding: 16px 10px;
+  }
+
+  .form {
+    justify-content: space-evenly;
+  }
+
+  .form input {
+    width: 65%;
+    bottom: 36px;
+    animation: extendInputMedium 1.5s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+      0.5s 1 forwards;
+  }
+
+  .form label h1 {
+    font-size: 1.5em;
+  }
+
+  .form-details {
+    justify-content: space-between;
+  }
 }

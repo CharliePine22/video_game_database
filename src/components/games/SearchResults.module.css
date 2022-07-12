@@ -1,10 +1,58 @@
+.container {
+  background-color: black;
+  color: #49ff18;
+  height: 100%;
+  width: 100%;
+}
+
 .results-container {
-    background-color:black;
-    color:red;
-    margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 120px;
+  background-color: black;
 }
 
 .results-container h1 {
-    text-align: center;
-    margin-bottom: 25px;
+  color: #fff;
+  z-index: 1;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #49ff18,
+    0 0 30px #49ff18, 0 0 40px #49ff18, 0 0 55px #49ff18, 0 0 75px #49ff18;
+}
+
+.results-container ul {
+  padding: 0;
+  margin: 0;
+}
+
+/* Mobile Devices */
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .container {
+    width: 100vh;
+  }
+  .results-container {
+    top: 160px;
+  }
+
+  .results-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 36px;
+  }
+}
+
+/* Tablets and Laptops */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    width: 100vh;
+  }
+  .results-container {
+    top: 90px;
+  }
+
+  .results-container ul {
+    background: black;
+    margin: 0;
+  }
 }

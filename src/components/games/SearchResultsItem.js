@@ -8,10 +8,11 @@ const SearchResultsItem = (props) => {
   const [quickAddStatus, setQuickAddStatus] = useState(false);
   const [message, setMessage] = useState('');
 
+  // Adds the game to collection without having to open up the details
   const quickAddGameHandler = () => {
-    setQuickAddStatus(true)
+    setQuickAddStatus(true);
     const fetchApi = async () => {
-      setLoading(true)
+      setLoading(true);
       try {
         const response = await fetch('/api/add-game', {
           method: 'POST',
@@ -22,16 +23,32 @@ const SearchResultsItem = (props) => {
           throw new Error(response.statusText);
         }
         const data = await response.json();
-        setMessage(data)
+        setMessage(data);
       } catch (e) {
         console.log(e);
       }
       setLoading(false);
     };
-    fetchApi()
-  }
+    fetchApi();
+  };
 
-  const buttonIcon = (!loading && !quickAddStatus) ? <FaPlusCircle className={styles.icon}/> : loading ? <div className={styles["lds-ring"]}><div></div><div></div><div></div><div></div></div> : (!loading && quickAddStatus && message.status == 'success') ? <p className={styles.success}>✔</p> : (!loading && quickAddStatus && message.status == 'failed') ? <p className={styles.failed}>X</p> : '';
+  const buttonIcon =
+    !loading && !quickAddStatus ? (
+      <FaPlusCircle className={styles.icon} />
+    ) : loading ? (
+      <div className={styles['lds-ring']}>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    ) : !loading && quickAddStatus && message.status == 'success' ? (
+      <p className={styles.success}>✔</p>
+    ) : !loading && quickAddStatus && message.status == 'failed' ? (
+      <p className={styles.failed}>X</p>
+    ) : (
+      ''
+    );
   // const iconStatus = ()
 
   return (
@@ -45,8 +62,15 @@ const SearchResultsItem = (props) => {
             <h2>{props.name}</h2>
             <p>Release Date: {props.released}</p>
             <div className={styles.actions}>
-              <Link href={`/game_details/${props.slug}`}><a className={styles.details}>See Game Details</a></Link>
-              <button onClick={quickAddGameHandler} className={styles['quick-add']}>{buttonIcon}</button>
+              <Link href={`/game_details/${props.slug}`}>
+                <a className={styles.details}>See Game Details</a>
+              </Link>
+              <button
+                onClick={quickAddGameHandler}
+                className={styles['quick-add']}
+              >
+                {buttonIcon}
+              </button>
             </div>
           </div>
         </div>
