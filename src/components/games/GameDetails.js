@@ -8,7 +8,6 @@ import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 import LoadingScreen from '../layout/LoadingScreen';
 import { ResultsContext } from '../../contexts/ResultsContext';
 
-
 const GameDetails = (props) => {
   const game = props.game;
   const router = useRouter();
@@ -20,7 +19,7 @@ const GameDetails = (props) => {
   const doorClosedIcon = <FontAwesomeIcon icon={faDoorClosed} />;
   const ctx = useContext(ResultsContext);
 
-  console.log(game)
+  console.log(game);
 
   useEffect(() => {
     // Fetch game series list after component renders
@@ -83,7 +82,11 @@ const GameDetails = (props) => {
   if (loading) {
     return (
       <>
-          <LoadingScreen requestMethod={ctx.method} message={mongoMessage} setLoading={setLoading}/>
+        <LoadingScreen
+          requestMethod={ctx.method}
+          message={mongoMessage}
+          setLoading={setLoading}
+        />
       </>
     );
   }
@@ -155,7 +158,7 @@ const GameDetails = (props) => {
             <h3 className={styles.headers}>Platforms</h3>
             <ul>
               {game.platforms.map((p, index, arr) => (
-                <span key={p.platform}>
+                <span key={p.platform.name}>
                   {p.platform.name} {index != arr.length - 1 ? '| ' : ''}
                 </span>
               ))}
@@ -168,7 +171,7 @@ const GameDetails = (props) => {
           <ul className={styles['game-series']}>
             {gameSeriesList &&
               gameSeriesList.map((game) => (
-                <Link href={`/game_details/${game.slug}`}>
+                <Link key={game.slug} href={`/game_details/${game.slug}`}>
                   <a className={styles['series-game']}>
                     {game.name} <br />
                   </a>
