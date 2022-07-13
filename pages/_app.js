@@ -1,7 +1,6 @@
 import '../styles/globals.css';
 import NextNprogress from 'nextjs-progressbar';
 import { ResultsProvider } from '../src/contexts/ResultsContext';
-import { UserProvider } from '@auth0/nextjs-auth0';
 import NavigationBar from '../src/components/layout/navbar/NavigationBar';
 
 function MyApp({ Component, pageProps }) {
@@ -13,13 +12,11 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <UserProvider>
         <ResultsProvider>
           <NextNprogress color='#FF0000' />
           <NavigationBar />
           <Component {...pageProps} />
         </ResultsProvider>
-      </UserProvider>
     </>
   );
 }
