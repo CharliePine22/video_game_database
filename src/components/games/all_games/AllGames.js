@@ -43,6 +43,7 @@ const AllGames = (props) => {
             <h3 className={styles.title}>Library</h3>
             {/* <FaSteam className={styles.icon} /> */}
             <div className={styles.library}>
+              <div className={styles['title-filter']}></div>
               {sortedGames.map((game) => (
                 <AllGamesItem
                   key={game._id}

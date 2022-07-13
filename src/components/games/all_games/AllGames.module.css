@@ -14,7 +14,6 @@
   background-color: black;
   height: 100vh;
   color: red;
-  margin-top: 100px;
   font-size: 20px;
 }
 
@@ -138,10 +137,8 @@
   .card {
     height: 80%;
     flex-direction: column;
-  }
-
-  .container {
-    margin-top: 85px;
+    position: relative;
+    top: 40px;
   }
 
   .filter-actions {
