@@ -22,21 +22,24 @@ const Home = () => {
             />
           </div>
           <div className={styles.description}>
-            <p>
+            {/* <p>
               An application to store your completed, currently playing, or
               wishlisted games. To start, add a new game to your list by
               pressing the button below!
-            </p>
+            </p> */}
             <Link className={styles.button} href='/search'>
               Add New Game
+            </Link>
+            <Link className={styles.button} href='/games_dashboard'>
+              My Collection
             </Link>
           </div>
           {/* <div className={styles.games}>
         <CarouselItems />
       </div> */}
-          <section className={styles.ticker}>
+          {/* <section className={styles.ticker}>
             <TickerBar />
-          </section>
+          </section> */}
         </div>
       </div>
     </>

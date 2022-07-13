@@ -2,7 +2,8 @@
 
 .background-image {
   border-radius: 5px;
-  box-shadow: 0px 0px 15px red;
+  box-shadow: 0 0 0.5rem #fff, inset 0 0 0.5rem #fff, 0 0 1rem #49ff18,
+  inset 0 0 1rem #49ff18, 0 0 1rem #49ff18, inset 0 0 0rem #49ff18;
   width: 80%;
   height: 420px;
 }
@@ -13,8 +14,10 @@
 }
 
 .inner {
-  position: relative;
-  top: 100px;
+  display:flex;
+  flex-direction: column;
+  /* height:100%; */
+  justify-content: center;
 }
 
 .description {
@@ -25,31 +28,39 @@
   align-items: center;
   padding: 20px 10px 0px 10px;
   background-color: black;
-  color: red;
+  color: #49ff18;
   font-size: 1em;
 }
 
 .description a {
   background-color: black;
-  border: 1px solid red;
+  border: 1px solid #49ff18;
   border-radius: 5px;
   margin-top: 5px;
-  padding: 10px 12px;
+  padding: 12px 15px;
   color: white;
   text-decoration: none;
   transition: all 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 
 .description a:hover {
-  background-color: red;
+  background-color: #49ff18;
   border: 1px solid white;
 }
 
 .home {
   background-color: black;
   text-align: center;
-  color: red;
-  margin-bottom: 18px;
+  color: #49ff18;
+  margin-bottom: 105px;
+  position: relative;
+  top: 95px;
+}
+
+.home h1 {
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #49ff18,
+  0 0 30px #49ff18, 0 0 40px #49ff18, 0 0 55px #49ff18, 0 0 75px #49ff18;
+  text-transform: uppercase;
 }
 
 .image-container {
@@ -60,8 +71,10 @@
   align-items: center;
   background-color: black;
   width: 100%;
-  height: 100%;
+  padding-bottom:10px;
+  /* height: 100%; */
   color: red;
+  margin-top: 20px;
 }
 
 .ticker {
@@ -79,24 +92,42 @@
 /* Mobile Devices */
 @media screen and (min-width: 320px) and (max-width: 500px) {
   .background-image {
-    height: 300px;
+    height: 350px;
+    width: 88%;
   }
+
   .description {
-    padding: 30px 10px 5px 10px;
+    padding: 0px 10px 50px 10px;
     font-size: 0.9em;
+  }
+
+  .description p {
+    margin-bottom:0;
   }
 
   .description a {
     padding: 10px 12px;
+    position: relative;
+    top: 25px;
   }
 
   .home {
-    margin-bottom: 25px;
+    margin-top: 75px;
+    margin-bottom:25px;
+    top:0;
+  }
+
+  .home h1 {
+    font-size: 1.8em;
   }
 
   .inner {
-    position: relative;
-    top: 80px;
+    justify-content: space-around;
+  }
+
+  .image-container {
+    padding-bottom: 10px;
+    margin: 0;
   }
 
   .ticker {
