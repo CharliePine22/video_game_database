@@ -8,13 +8,7 @@ import Image from 'next/image';
 
 const NavigationBar = () => {
   return (
-    <Navbar
-      className={styles.nav}
-      bg='dark'
-      variant='dark'
-      expand='lg'
-      fixed='top'
-    >
+    <Navbar className={styles.nav} variant='dark' expand='lg' fixed='top'>
       <Container className={styles['nav-container']}>
         <Navbar.Brand className={styles['nav-brand']} href='/'>
           <Image

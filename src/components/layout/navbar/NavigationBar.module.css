@@ -1,3 +1,26 @@
+.nav {
+  padding: 0 !important;
+  /* background: rgba(255, 255, 255, 0.05); */
+  background: rgb(0, 0, 0);
+  background: -moz-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
+  padding: 10px !important;
+}
+
 .nav-logo {
   background-color: transparent;
   height: 100% !important;
@@ -5,17 +28,16 @@
   max-height: 50%;
 }
 
-.nav {
-  padding: 0 !important;
-}
-
 .nav-brand {
   font-size: 0;
   width: 15%;
+  padding: 0 !important;
 }
 
 .link {
   margin: 8px;
+  color: white !important;
+  font-weight: 900;
 }
 
 /* Mobile Devices */

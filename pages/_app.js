@@ -12,11 +12,11 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-        <ResultsProvider>
-          <NextNprogress color='#FF0000' />
-          <NavigationBar />
-          <Component {...pageProps} />
-        </ResultsProvider>
+      <ResultsProvider>
+        <NextNprogress color='#FF0000' />
+        <NavigationBar />
+        <Component {...pageProps} />
+      </ResultsProvider>
     </>
   );
 }
