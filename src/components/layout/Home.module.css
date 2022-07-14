@@ -109,11 +109,12 @@
     padding: 10px 12px;
     position: relative;
     top: 25px;
+    width: 220px;
   }
 
   .home {
-    margin-top: 75px;
-    margin-bottom:25px;
+    margin-top: 50px;
+    margin-bottom: 40px;
     top:0;
   }
 
@@ -123,6 +124,9 @@
 
   .inner {
     justify-content: space-around;
+    position: relative;
+    top: 30px;
+    overflow: hidden;
   }
 
   .image-container {
